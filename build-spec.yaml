@@ -10,6 +10,7 @@ phases:
       - REPOSITORY_URI=710916411001.dkr.ecr.us-east-1.amazonaws.com/python_app
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - sudo service docker start
   build:
     commands:
       - echo Build started on `date`
